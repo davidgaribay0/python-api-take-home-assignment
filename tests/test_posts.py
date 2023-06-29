@@ -31,3 +31,15 @@ def test_post_individual_post(post_id=1):
     assert r.status_code == 201
     # assert schema
     print(r.json())
+
+
+def test_put_individual_post(post_id=1):
+    post_data = {
+        'title': 'foo-update',
+        'body': 'bar',
+        'userId': 1,
+    }
+    r = requests.put(f'{base_url}/posts/{post_id}', json=post_data)
+    assert r.status_code == 200
+    # assert schema
+    print(r.json())
